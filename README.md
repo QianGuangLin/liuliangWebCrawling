@@ -1,4 +1,4 @@
 # liuliangWebCrawling
-Data Crawling Tool for Package Information
-\n
-R&D using Scrapy
+Data Crawling Tool for Package Information  
+  
+R&D using Scrapy  
