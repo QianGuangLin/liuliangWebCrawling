@@ -28,7 +28,7 @@ parent_directory = os.path.dirname(os.getcwd())
 
 
 
-# 打印菜单
+
 def menu():
     # print("\n")
     menu_info = '''=================================
@@ -43,21 +43,19 @@ def menu():
     # print("\n")
 
 
-# 爬虫启动
+
 def liuliangCrawlStart():
-    # 启动爬虫
-    # 可以在CrawlerProcess初始化时传入项目的settings信息，在crawl方法中传入爬虫的名字。
+
     process = CrawlerProcess(get_project_settings())
     process.crawl('liuliang')
     process.start()
 
 
-# 显示爬取数据
+
 def showDataInfo():
     DATAPATH = this_directory + "/DB/csv/liuliang-63.csv"
     if os.path.exists(DATAPATH):
-        print("显示爬取数据...")
-        # 使用 pandas 读取
+        print("Show crawl data...")
         df = pd.read_csv(DATAPATH)
         tb = pt.PrettyTable()
         tb.add_column('indexs', df.index)
@@ -68,15 +66,11 @@ def showDataInfo():
     else:
         print("No data file, please go crawl...")
 
-# 更新数据
+
 def updateDataInfo():
-
     os.system("scrapy crawl liuliang")
-
     DATAPATH = this_directory + "/DB/update/update.csv"
-    # 先判断数据是否存在
     if os.path.exists(DATAPATH):
-
         df = pd.read_csv(DATAPATH)
         if df.empty:
             print("No data update...")
